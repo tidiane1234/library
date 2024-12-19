@@ -38,6 +38,12 @@ public class CategorieService {
         );
     }
 
+    public Categorie searchByNom(String name){
+        return categorieRepository.findByNom(name).orElseThrow(
+                ()->new RuntimeException("cette categorie n'existe pas ")
+        );
+    }
+
     public List<CategorieResponseRequest> getAll(){
         return categorieRepository.findAll()
                 .stream()

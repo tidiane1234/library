@@ -29,6 +29,13 @@ public class CategorieController {
         return categorieService.findById(id);
     }
 
+
+    @GetMapping("/{name}")
+    public Categorie findByNom(@PathVariable String name){
+        return categorieService.searchByNom(name);
+    }
+
+
     @PostMapping("/create")
     public Categorie add(@RequestBody @Valid CategorieCreationRequest request){
         return categorieService.add(request);
